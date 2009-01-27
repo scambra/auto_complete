@@ -64,7 +64,7 @@ module AutoCompleteMacrosHelper
     js_options = {}
     
     if protect_against_forgery?
-      options[:with] ||= "Form.serialize(form)"
+      options[:with] ||= "$$('form')[0].serialize()"
       options[:with] += " + '&authenticity_token=' + encodeURIComponent('#{form_authenticity_token}')"
     end
     
